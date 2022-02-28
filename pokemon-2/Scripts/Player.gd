@@ -6,7 +6,7 @@ const tile_size = 16
 var inital_position = Vector2(0, 0)
 var input_direction = Vector2(0, 0)
 var is_moving = false
-var precent_moved_to_next_tile = 0.0
+var percent_moved_to_next_tile = 0.0
 
 
 func _ready():
@@ -31,10 +31,10 @@ func player_input():
 		is_moving = true
 		
 func move(delta):
-	precent_moved_to_next_tile += walk_speed + delta
-	if precent_moved_to_next_tile >= 1.0:
+	percent_moved_to_next_tile += walk_speed + delta
+	if percent_moved_to_next_tile >= 1.0:
 		position = inital_position + (tile_size * input_direction)
-		precent_moved_to_next_tile = 0.0
+		percent_moved_to_next_tile = 0.0
 		is_moving = false
 	else:
-		position = inital_position + (tile_size * input_direction * precent_moved_to_next_tile) 
+		position = inital_position + (tile_size * input_direction * percent_moved_to_next_tile) 
